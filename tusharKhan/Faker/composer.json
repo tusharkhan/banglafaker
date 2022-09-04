@@ -1,0 +1,55 @@
+{
+    "name": "tusharkhan/banglafaker",
+    "description": "This is a bangla faker",
+    "keywords": [
+        "tusharkhan",
+        "banglafaker"
+    ],
+    "homepage": "https://github.com/tusharkhan/banglafaker",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Tushar Khan",
+            "email": "tushar.khan0122@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "illuminate/support": "^8.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tusharkhan\\BanglaFaker\\": "src",
+            "Tusharkhan\\BanglaFaker\\Lib\\" : "Lib"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tusharkhan\\Banglafaker\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "../../../app/vendor/bin/phpunit",
+        "test-coverage": "../../../app/vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "BanglaFakerServiceProvider"
+            ],
+            "aliases": {
+                "Banglafaker": "BanglaFakerFacade"
+            }
+        }
+    }
+}
