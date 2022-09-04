@@ -3,56 +3,34 @@
 namespace Tusharkhan\BanglaFaker;
 
 
+
 class BanglaFaker extends BaseFaker
 {
+    public static $childClasses = [
+        '\\Tusharkhan\\BanglaFaker\\Lib\\Address', '\\Tusharkhan\\BanglaFaker\\Lib\\Number', "\\Tusharkhan\\BanglaFaker\\Lib\\Phone"
+    ];
 
-    public function __construct()
+    /**
+     * @return string[]
+     */
+    public static function getChildClasses(): array
     {
-       //silence is gold
-    }
-
-    public function parse($string)
-    {
-        $callback = function ($matches) {
-            return $this->format($matches[1]);
-        };
-
-        return preg_replace_callback('/{{\s?(\w+|[\w\\\]+->\w+?)\s?}}/u', $callback, $string);
+        return self::$childClasses;
     }
 
 
-    public function format($format, $arguments = [])
+    public static function parse($string)
     {
-        return call_user_func_array($this->getFormatter($format), $arguments);
+        return static::getFormatter($string);
     }
 
-    public function getFormatter($format)
+    public static function make($method)
     {
-        if (isset($this->formatters[$format])) {
-            return $this->formatters[$format];
-        }
-
-        if (method_exists($this, $format)) {
-            $this->formatters[$format] = [$this, $format];
-
-            return $this->formatters[$format];
-        }
-
-        // "Faker\Core\Barcode->ean13"
-        if (preg_match('|^([a-zA-Z0-9\\\]+)->([a-zA-Z0-9]+)$|', $format, $matches)) {
-            $this->formatters[$format] = [$this->ext($matches[1]), $matches[2]];
-
-            return $this->formatters[$format];
-        }
-
-        foreach ($this->providers as $provider) {
-            if (method_exists($provider, $format)) {
-                $this->formatters[$format] = [$provider, $format];
-
-                return $this->formatters[$format];
+        foreach (static::$childClasses as $childClass){
+            if( method_exists($childClass, $method) ){
+                return forward_static_call(array($childClass, $method));
             }
         }
-
-        throw new \InvalidArgumentException(sprintf('Unknown format "%s"', $format));
     }
+
 }

@@ -566,4 +566,22 @@ class BaseFaker
     }
 
 
+    public static function getFormatter($string)
+    {
+        $mainString = $string;
+        $formats = explode(' ', $mainString);
+
+        foreach ($formats as $format) {
+            if( preg_match('/{{\s?(\w+|[\w\\\]+->\w+?)\s?}}/u', $format, $matches) ){
+                if ( method_exists(new static, $matches[1]) ){
+                    $callFunction = forward_static_call(array(get_called_class(), $matches[1]));
+
+                    $mainString = preg_replace($matches[0], $callFunction, $mainString);
+                }
+            }
+        }
+
+        return str_replace(['{', '}'], '', $mainString);
+    }
+
 }

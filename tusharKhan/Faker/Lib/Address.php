@@ -346,24 +346,8 @@ class Address extends BanglaFaker
         return self::cityPrefix() . ' ' . self::citySuffix();
     }
 
-    public static function testFunction()
+    public static function address()
     {
-        $formats = explode(' ', '{{streetAddress}}, {{city}} {{state}}');
-
-        $result = null;
-
-        foreach ($formats as $format) {
-            if( preg_match('/{{\s?(\w+|[\w\\\]+->\w+?)\s?}}/u', $format, $matches) ){
-                if ( method_exists(new static, $matches[1]) ){
-                    if( end($formats) == $format ){
-                        $result .= forward_static_call(array(__CLASS__, $matches[1]));
-                    } else $result .= forward_static_call(array(__CLASS__, $matches[1])) . ' ';
-                }
-            }
-        }
-
-
-
-        return $result;
+        return static::parse(static::$addressFormats[0]);
     }
 }
