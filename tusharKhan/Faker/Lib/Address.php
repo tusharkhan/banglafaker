@@ -284,21 +284,22 @@ class Address extends BanglaFaker
     ];
 
     protected static $cityFormats = [
-        '{{cityPrefix}}{{citySuffix}}',
-
+        '{{cityPrefix}} {{citySuffix}}',
     ];
     protected static $streetNameFormats = [
-        '{{banglaStreetName}} {{streetSuffix}}',
-
+        '{{streetNames}} {{streetSuffix}}',
     ];
     protected static $streetAddressFormats = [
-        '{{streetNumber}} {{streetName}}',
+        '{{streetNumber}} {{streetNames}}',
     ];
     protected static $addressFormats = [
         '{{streetAddress}}, {{city}} {{state}}',
     ];
 
-    protected static $method = 'streetAddress';
+    public static function postcode()
+    {
+        return static::parse(static::randomElement(static::$postcode));
+    }
 
     public static function cityPrefix()
     {
@@ -330,6 +331,11 @@ class Address extends BanglaFaker
         return static::randomElement(static::$streetNames);
     }
 
+    public static function streetName()
+    {
+        return self::parse(static::randomElement(static::$streetNameFormats));
+    }
+
     public static function street()
     {
         return self::banglaStreetName() . " " . self::streetSuffix();
@@ -337,17 +343,21 @@ class Address extends BanglaFaker
 
     public static function streetAddress()
     {
-        return self::street();
+        return self::parse(static::randomElement(static::$streetAddressFormats));
     }
-
 
     public static function city()
     {
-        return self::cityPrefix() . ' ' . self::citySuffix();
+        return self::parse(static::randomElement(self::$cityFormats));
     }
 
     public static function address()
     {
-        return static::parse(static::$addressFormats[0]);
+        return static::parse(static::randomElement(static::$addressFormats));
+    }
+
+    public static function country()
+    {
+        return static::randomElement(self::$country);
     }
 }

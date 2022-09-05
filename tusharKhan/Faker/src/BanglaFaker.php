@@ -18,19 +18,25 @@ class BanglaFaker extends BaseFaker
         return self::$childClasses;
     }
 
+    public function __call(string $name, array $arguments)
+    {
+        return self::make($name, $arguments);
+    }
+
 
     public static function parse($string)
     {
         return static::getFormatter($string);
     }
 
-    public static function make($method)
+    public static function make($method, $args = [])
     {
         foreach (static::$childClasses as $childClass){
             if( method_exists($childClass, $method) ){
-                return forward_static_call(array($childClass, $method));
+                return forward_static_call(array($childClass, $method), $args);
             }
         }
-    }
 
+        return new \Exception( $method .  ' Method not found');
+    }
 }

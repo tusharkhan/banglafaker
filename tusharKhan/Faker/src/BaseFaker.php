@@ -8,6 +8,8 @@
 
 namespace Tusharkhan\BanglaFaker;
 
+use Tusharkhan\BanglaFaker\Lib\Number;
+
 class BaseFaker
 {
     /**
@@ -571,6 +573,7 @@ class BaseFaker
         $mainString = $string;
         $formats = explode(' ', $mainString);
 
+
         foreach ($formats as $format) {
             if( preg_match('/{{\s?(\w+|[\w\\\]+->\w+?)\s?}}/u', $format, $matches) ){
                 if ( method_exists(new static, $matches[1]) ){
@@ -578,6 +581,15 @@ class BaseFaker
 
                     $mainString = preg_replace($matches[0], $callFunction, $mainString);
                 }
+            } else if ( preg_match('/[#-]+/', $format, $matches) ){
+                $strArray = str_split($mainString);
+
+                foreach ($strArray as $ins => $str){
+                    if ( $str == '#' ) $strArray[$ins] = Number::getBanglaNumber(self::numberBetween(0, 9));
+                    else continue;
+                }
+
+                $mainString = implode('', $strArray);
             }
         }
 
