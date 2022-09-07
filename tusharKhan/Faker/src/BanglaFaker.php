@@ -8,7 +8,7 @@ class BanglaFaker extends BaseFaker
 {
     public static $childClasses = [
         '\\Tusharkhan\\BanglaFaker\\Lib\\Address', '\\Tusharkhan\\BanglaFaker\\Lib\\Number', "\\Tusharkhan\\BanglaFaker\\Lib\\Phone",
-        '\\Tusharkhan\\BanglaFaker\\Lib\\Company'
+        '\\Tusharkhan\\BanglaFaker\\Lib\\Utils', '\\Tusharkhan\\BanglaFaker\\Lib\\Date',
     ];
 
     /**

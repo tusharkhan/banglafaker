@@ -596,4 +596,10 @@ class BaseFaker
         return str_replace(['{', '}'], '', $mainString);
     }
 
+    public static function getConstants()
+    {
+        $oClass = new \ReflectionClass(get_called_class());
+        return $oClass->getConstants();
+    }
+
 }

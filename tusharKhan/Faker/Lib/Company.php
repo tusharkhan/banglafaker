@@ -2,7 +2,7 @@
 /**
  * created by: tushar Khan
  * email : tushar.khan0122@gmail.com
- * date : 9/5/2022
+ * date : 9/8/2022
  */
 
 
@@ -17,11 +17,11 @@ class Company extends BanglaFaker
     ];
 
     protected static $names = [
-        'রহিম', 'করিম', 'বাবলু', 'ভাই ভাই'
+        'রহিম', 'করিম', 'বাবলু',
     ];
 
     protected static $types = [
-        'সিমেন্ট', 'সার', 'ঢেউটিন', 'রেস্তোরা', 'ট্রেডারস'
+        'সিমেন্ট', 'সার', 'ঢেউটিন',
     ];
 
     public static function companyType()
@@ -32,11 +32,5 @@ class Company extends BanglaFaker
     public static function companyName()
     {
         return static::randomElement(static::$names);
-    }
-
-
-    public static function company()
-    {
-        return static::parse(static::randomElement(static::$formats));
     }
 }
