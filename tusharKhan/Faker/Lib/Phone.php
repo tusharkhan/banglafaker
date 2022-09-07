@@ -8,7 +8,17 @@
 
 namespace Tusharkhan\BanglaFaker\Lib;
 
-class Phone
-{
+use Tusharkhan\BanglaFaker\BanglaFaker;
 
+class Phone extends BanglaFaker
+{
+    protected static $formats = [
+        '+৮৮০১#########',
+    ];
+
+
+    public static function phone()
+    {
+        return static::parse(static::randomElement(static::$formats));
+    }
 }
