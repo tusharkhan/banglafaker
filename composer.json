@@ -25,7 +25,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Tusharkhan\\BanglaFaker\\": "tusharKhan/Faker/src",
+            "Tusharkhan\\BanglaFaker\\": "src",
             "Tusharkhan\\BanglaFaker\\Lib\\" : "tusharKhan/Faker/Lib"
         }
     },
