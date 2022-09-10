@@ -167,6 +167,3 @@ If you discover any security related issues, please email tushar.khan0122@gmail.
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-## Laravel Package Boilerplate
-
-This package was generated using the [Laravel Package Boilerplate](https://laravelpackageboilerplate.com).
