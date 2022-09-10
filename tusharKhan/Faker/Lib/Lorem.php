@@ -53,7 +53,7 @@ class Lorem extends BanglaFaker
     public static function words($nb = 3, $asText = false)
     {
         $arguments = func_get_args();
-
+        $arguments = static::removeEmptyArray($arguments);
 
         if( count($arguments) > 0 ){
             if ( ! is_array($arguments[0]) ){
@@ -69,6 +69,8 @@ class Lorem extends BanglaFaker
                     $asText = $arguments[0][1];
                 }
             }
+        } else {
+            $nb = 3; $asText = false;
         }
 
 
@@ -85,6 +87,7 @@ class Lorem extends BanglaFaker
     public static function sentence($nbWords = 6, $variableNbWords = true)
     {
         $arguments = func_get_args();
+        $arguments = static::removeEmptyArray($arguments);
 
         if( count($arguments) > 0 ){
             if ( ! is_array($arguments[0]) ){
@@ -100,6 +103,8 @@ class Lorem extends BanglaFaker
                     $variableNbWords = $arguments[0][1];
                 }
             }
+        } else {
+            $nbWords = 6; $variableNbWords = false;
         }
 
 
@@ -120,6 +125,7 @@ class Lorem extends BanglaFaker
     public static function sentences($nb = 3, $asText = false)
     {
         $arguments = func_get_args();
+        $arguments = static::removeEmptyArray($arguments);
 
         if( count($arguments) > 0 ){
             if ( ! is_array($arguments[0]) ){
@@ -135,7 +141,10 @@ class Lorem extends BanglaFaker
                     $asText = $arguments[0][1];
                 }
             }
+        } else {
+            $nb = 3; $asText = false;
         }
+
 
         $sentences = [];
 
@@ -150,6 +159,7 @@ class Lorem extends BanglaFaker
     public static function paragraph($nbSentences = 3, $variableNbSentences = true)
     {
         $arguments = func_get_args();
+        $arguments = static::removeEmptyArray($arguments);
 
         if( count($arguments) > 0 ){
             if ( ! is_array($arguments[0]) ){
@@ -165,6 +175,8 @@ class Lorem extends BanglaFaker
                     $variableNbSentences = $arguments[0][1];
                 }
             }
+        } else {
+            $nbSentences = 3; $variableNbSentences = true;
         }
 
 
@@ -183,6 +195,7 @@ class Lorem extends BanglaFaker
     public static function paragraphs($nb = 3, $asText = false)
     {
         $arguments = func_get_args();
+        $arguments = static::removeEmptyArray($arguments);
 
         if( count($arguments) > 0 ){
             if ( ! is_array($arguments[0]) ){
@@ -198,6 +211,8 @@ class Lorem extends BanglaFaker
                     $asText = $arguments[0][1];
                 }
             }
+        } else {
+            $nb = 3; $asText = false;
         }
 
         $paragraphs = [];
@@ -209,50 +224,6 @@ class Lorem extends BanglaFaker
         return $asText ? implode("\n\n", $paragraphs) : $paragraphs;
     }
 
-
-    public static function text($maxNbChars = 200)
-    {
-        $arguments = func_get_args();
-
-        if( count($arguments) > 0 ){
-            if ( ! is_array($arguments[0]) ){
-                $maxNbChars = $arguments[0];
-            } else {
-                if ( isset($arguments[0][0]) ){
-                    $maxNbChars = $arguments[0][0];
-                }
-            }
-        }
-
-        if ($maxNbChars < 5) {
-            throw new \InvalidArgumentException('text() can only generate text of at least 5 characters');
-        }
-
-        $type = ($maxNbChars < 25) ? 'word' : (($maxNbChars < 100) ? 'sentence' : 'paragraph');
-
-        $text = [];
-
-        while (empty($text)) {
-            $size = 0;
-
-            // until $maxNbChars is reached
-            while ($size < $maxNbChars) {
-                $word = ($size ? ' ' : '') . static::$type();
-                $text[] = $word;
-
-                $size += strlen($word);
-            }
-
-            array_pop($text);
-        }
-
-        if ($type === 'word') {
-            // end sentence with full stop
-            $text[count($text) - 1] .= ' ।';
-        }
-
-        return implode('', $text);
-    }
 
     protected static function randomizeNbElements($nbElements)
     {
