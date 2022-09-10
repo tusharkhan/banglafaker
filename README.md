@@ -1,7 +1,11 @@
 # A Laravel Bangla Faker Generator followed by [PHP Faker](https://fakerphp.github.io/)
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/alaminfirdows/laravel-editorjs.svg?style=for-the-badge)](https://packagist.org/packages/alaminfirdows/laravel-editorjs)
-[![Total Downloads](https://img.shields.io/packagist/dm/tusharkhan/banglafaker?style=flat-square)](https://packagist.org/packages/tusharkhan/banglafaker)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/alaminfirdows/laravel-editorjs.svg?style=flat-square)](https://packagist.org/packages/alaminfirdows/laravel-editorjs)
+[![Total Downloads](https://img.shields.io/github/downloads/tusharkhan/banglafaker/total)](https://packagist.org/packages/tusharkhan/banglafaker)
+![Contributions](https://img.shields.io/github/contributors/tusharkhan/banglafaker)
+![codesize](https://img.shields.io/github/languages/code-size/tusharkhan/banglafaker)
+![license](https://img.shields.io/github/license/tusharkhan/banglafaker)
+![php-version](https://img.shields.io/packagist/php-v/tusharkhan/banglafaker)
 
 
 This is a Bangla Faker generator for [Laravel](https://laravel.com/) projects . This is my first package , so if you found any bug or any issue . Please let me know . So that we can debug together.
