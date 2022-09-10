@@ -45,10 +45,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "BanglaFakerServiceProvider"
+                "\\Tusharkhan\\BanglaFaker\\BanglaFakerServiceProvider"
             ],
             "aliases": {
-                "Banglafaker": "BanglaFakerFacade"
+                "Banglafaker": "\\Tusharkhan\\BanglaFaker\\BanglaFakerFacade"
             }
         }
     }
