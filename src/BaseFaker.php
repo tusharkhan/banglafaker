@@ -12,33 +12,19 @@ use Tusharkhan\BanglaFaker\Lib\Number;
 
 class BaseFaker
 {
-    /**
-     * Returns a random number between 0 and 9
-     *
-     * @return int
-     */
+
     public static function randomDigit()
     {
         return mt_rand(0, 9);
     }
 
-    /**
-     * Returns a random number between 1 and 9
-     *
-     * @return int
-     */
+
     public static function randomDigitNotNull()
     {
         return mt_rand(1, 9);
     }
 
-    /**
-     * Generates a random digit, which cannot be $except
-     *
-     * @param int $except
-     *
-     * @return int
-     */
+
     public static function randomDigitNot($except)
     {
         $result = self::numberBetween(0, 8);
@@ -50,18 +36,7 @@ class BaseFaker
         return $result;
     }
 
-    /**
-     * Returns a random integer with 0 to $nbDigits digits.
-     *
-     * The maximum value returned is mt_getrandmax()
-     *
-     * @param int  $nbDigits Defaults to a random number between 1 and 9
-     * @param bool $strict   Whether the returned number should have exactly $nbDigits
-     *
-     * @example 79907610
-     *
-     * @return int
-     */
+
     public static function randomNumber($nbDigits = null, $strict = false)
     {
         if (!is_bool($strict)) {
@@ -84,17 +59,7 @@ class BaseFaker
         return mt_rand(0, $max);
     }
 
-    /**
-     * Return a random float number
-     *
-     * @param int       $nbMaxDecimals
-     * @param float|int $min
-     * @param float|int $max
-     *
-     * @example 48.8932
-     *
-     * @return float
-     */
+
     public static function randomFloat($nbMaxDecimals = null, $min = 0, $max = null)
     {
         if (null === $nbMaxDecimals) {
@@ -118,16 +83,7 @@ class BaseFaker
         return round($min + mt_rand() / mt_getrandmax() * ($max - $min), $nbMaxDecimals);
     }
 
-    /**
-     * Returns a random number between $int1 and $int2 (any order)
-     *
-     * @param int $int1 default to 0
-     * @param int $int2 defaults to 32 bit max integer, ie 2147483647
-     *
-     * @example 79907610
-     *
-     * @return int
-     */
+
     public static function numberBetween($int1 = 0, $int2 = 2147483647)
     {
         $min = $int1 < $int2 ? $int1 : $int2;
@@ -136,45 +92,25 @@ class BaseFaker
         return mt_rand($min, $max);
     }
 
-    /**
-     * Returns the passed value
-     */
+
     public static function passthrough($value)
     {
         return $value;
     }
 
-    /**
-     * Returns a random letter from a to z
-     *
-     * @return string
-     */
+
     public static function randomLetter()
     {
         return chr(mt_rand(97, 122));
     }
 
-    /**
-     * Returns a random ASCII character (excluding accents and special chars)
-     *
-     * @return string
-     */
+
     public static function randomAscii()
     {
         return chr(mt_rand(33, 126));
     }
 
-    /**
-     * Returns randomly ordered subsequence of $count elements from a provided array
-     *
-     * @param array $array           Array to take elements from. Defaults to a-c
-     * @param int   $count           Number of elements to take.
-     * @param bool  $allowDuplicates Allow elements to be picked several times. Defaults to false
-     *
-     * @throws \LengthException When requesting more elements than provided
-     *
-     * @return array New array with $count elements from $array
-     */
+
     public static function randomElements($array = ['a', 'b', 'c'], $count = 1, $allowDuplicates = false)
     {
         $traversables = [];
@@ -215,11 +151,7 @@ class BaseFaker
         return $elements;
     }
 
-    /**
-     * Returns a random element from a passed array
-     *
-     * @param array $array
-     */
+
     public static function randomElement($array = ['a', 'b', 'c'])
     {
         if (!$array || ($array instanceof \Traversable && !count($array))) {
@@ -247,21 +179,7 @@ class BaseFaker
         return $keys[mt_rand(0, count($keys) - 1)];
     }
 
-    /**
-     * Returns a shuffled version of the argument.
-     *
-     * This function accepts either an array, or a string.
-     *
-     * @example $faker->shuffle([1, 2, 3]); // [2, 1, 3]
-     * @example $faker->shuffle('hello, world'); // 'rlo,h eold!lw'
-     *
-     * @see shuffleArray()
-     * @see shuffleString()
-     *
-     * @param array|string $arg The set to shuffle
-     *
-     * @return array|string The shuffled set
-     */
+
     public static function shuffle($arg = '')
     {
         if (is_array($arg)) {
@@ -275,22 +193,7 @@ class BaseFaker
         throw new \InvalidArgumentException('shuffle() only supports strings or arrays');
     }
 
-    /**
-     * Returns a shuffled version of the array.
-     *
-     * This function does not mutate the original array. It uses the
-     * Fisher–Yates algorithm, which is unbiased, together with a Mersenne
-     * twister random generator. This function is therefore more random than
-     * PHP's shuffle() function, and it is seedable.
-     *
-     * @see http://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
-     *
-     * @example $faker->shuffleArray([1, 2, 3]); // [2, 1, 3]
-     *
-     * @param array $array The set to shuffle
-     *
-     * @return array The shuffled set
-     */
+
     public static function shuffleArray($array = [])
     {
         $shuffledArray = [];
@@ -316,24 +219,7 @@ class BaseFaker
         return $shuffledArray;
     }
 
-    /**
-     * Returns a shuffled version of the string.
-     *
-     * This function does not mutate the original string. It uses the
-     * Fisher–Yates algorithm, which is unbiased, together with a Mersenne
-     * twister random generator. This function is therefore more random than
-     * PHP's shuffle() function, and it is seedable. Additionally, it is
-     * UTF8 safe if the mb extension is available.
-     *
-     * @see http://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
-     *
-     * @example $faker->shuffleString('hello, world'); // 'rlo,h eold!lw'
-     *
-     * @param string $string   The set to shuffle
-     * @param string $encoding The string encoding (defaults to UTF-8)
-     *
-     * @return string The shuffled set
-     */
+
     public static function shuffleString($string = '', $encoding = 'UTF-8')
     {
         if (function_exists('mb_strlen')) {
@@ -366,14 +252,7 @@ class BaseFaker
         return $string;
     }
 
-    /**
-     * Replaces all hash sign ('#') occurrences with a random number
-     * Replaces all percentage sign ('%') occurrences with a not null number
-     *
-     * @param string $string String that needs to bet parsed
-     *
-     * @return string
-     */
+
     public static function numerify($string = '###')
     {
         // instead of using randomDigit() several times, which is slow,
@@ -420,14 +299,7 @@ class BaseFaker
         return self::replaceWildcard($string, '?', 'static::randomLetter');
     }
 
-    /**
-     * Replaces hash signs ('#') and question marks ('?') with random numbers and letters
-     * An asterisk ('*') is replaced with either a random number or a random letter
-     *
-     * @param string $string String that needs to be parsed
-     *
-     * @return string
-     */
+
     public static function bothify($string = '## ??')
     {
         $string = self::replaceWildcard($string, '*', static function () {
@@ -437,47 +309,13 @@ class BaseFaker
         return static::lexify(static::numerify($string));
     }
 
-    /**
-     * Replaces * signs with random numbers and letters and special characters
-     *
-     * @example $faker->asciify(''********'); // "s5'G!uC3"
-     *
-     * @param string $string String that needs to bet parsed
-     *
-     * @return string
-     */
+
     public static function asciify($string = '****')
     {
         return preg_replace_callback('/\*/u', 'static::randomAscii', $string);
     }
 
-    /**
-     * Transforms a basic regular expression into a random string satisfying the expression.
-     *
-     * @example $faker->regexify('[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}'); // sm0@y8k96a.ej
-     *
-     * Regex delimiters '/.../' and begin/end markers '^...$' are ignored.
-     *
-     * Only supports a small subset of the regex syntax. For instance,
-     * unicode, negated classes, unbounded ranges, subpatterns, back references,
-     * assertions, recursive patterns, and comments are not supported. Escaping
-     * support is extremely fragile.
-     *
-     * This method is also VERY slow. Use it only when no other formatter
-     * can generate the fake data you want. For instance, prefer calling
-     * `$faker->email` rather than `regexify` with the previous regular
-     * expression.
-     *
-     * Also note than `bothify` can probably do most of what this method does,
-     * but much faster. For instance, for a dummy email generation, try
-     * `$faker->bothify('?????????@???.???')`.
-     *
-     * @see https://github.com/icomefromthenet/ReverseRegex for a more robust implementation
-     *
-     * @param string $regex A regular expression (delimiters are optional)
-     *
-     * @return string
-     */
+
     public static function regexify($regex = '')
     {
         // ditch the anchors
@@ -541,32 +379,6 @@ class BaseFaker
         return $regex;
     }
 
-    /**
-     * Converts string to lowercase.
-     * Uses mb_string extension if available.
-     *
-     * @param string $string String that should be converted to lowercase
-     *
-     * @return string
-     */
-    public static function toLower($string = '')
-    {
-        return extension_loaded('mbstring') ? mb_strtolower($string, 'UTF-8') : strtolower($string);
-    }
-
-    /**
-     * Converts string to uppercase.
-     * Uses mb_string extension if available.
-     *
-     * @param string $string String that should be converted to uppercase
-     *
-     * @return string
-     */
-    public static function toUpper($string = '')
-    {
-        return extension_loaded('mbstring') ? mb_strtoupper($string, 'UTF-8') : strtoupper($string);
-    }
-
 
     public static function getFormatter($string)
     {
@@ -600,6 +412,19 @@ class BaseFaker
     {
         $oClass = new \ReflectionClass(get_called_class());
         return $oClass->getConstants();
+    }
+
+
+    public static function removeEmptyArray($array)
+    {
+        return array_filter(
+            array_map(
+                function($v){
+                    if( is_array($v) > 0 ) return array_filter($v,'strlen');
+                    else return $v;
+                },$array
+            )
+        );
     }
 
 }

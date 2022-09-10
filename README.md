@@ -52,9 +52,10 @@ All Static Methods
     \Tusharkhan\BanglaFaker\BanglaFaker::word() //word
     \Tusharkhan\BanglaFaker\BanglaFaker::text($maxNbChars = 200) //text
     \Tusharkhan\BanglaFaker\BanglaFaker::words($nb = 3, $asText = false) //words
+    \Tusharkhan\BanglaFaker\BanglaFaker::sentence($nbWords = 6, $variableNbWords = true) //sentence
     \Tusharkhan\BanglaFaker\BanglaFaker::sentences($nb = 3, $asText = false) //sentences
     \Tusharkhan\BanglaFaker\BanglaFaker::paragraphs($nb = 3, $asText = false) //paragraphs
-    \Tusharkhan\BanglaFaker\BanglaFaker::sentence($nbWords = 6, $variableNbWords = true) //sentence
+    \Tusharkhan\BanglaFaker\BanglaFaker::paragraphs($nb = 3, $asText = false) //paragraphs
     \Tusharkhan\BanglaFaker\BanglaFaker::paragraph($nbSentences = 3, $variableNbSentences = true) //paragraph
 
     // Numbers
