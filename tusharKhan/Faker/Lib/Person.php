@@ -74,4 +74,10 @@ class Person extends BanglaFaker
     {
         return static::parse(static::randomElement(static::$maleNameFormats));
     }
+
+
+    public static function femaleName()
+    {
+        return static::parse(static::randomElement(static::$femaleNameFormats));
+    }
 }
