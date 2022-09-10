@@ -1,6 +1,6 @@
 {
     "name": "tusharkhan/banglafaker",
-    "description": "This is a bangla faker",
+    "description": "A Bangla Faker Library for Laravel",
     "keywords": [
         "tusharkhan",
         "banglafaker"
