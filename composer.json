@@ -21,7 +21,7 @@
     },
     "require-dev": {
         "orchestra/testbench": "^6.0",
-        "phpunit/phpunit": "^9.0"
+        "phpunit/phpunit": "^9.5"
     },
     "autoload": {
         "psr-4": {
@@ -31,7 +31,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tusharkhan\\Banglafaker\\Tests\\": "tests"
+            "Tusharkhan\\Banglafaker\\Tests\\": "tests/"
         }
     },
     "scripts": {
