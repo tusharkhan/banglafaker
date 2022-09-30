@@ -21,60 +21,60 @@ composer require tusharkhan/banglafaker
 ## Usage
 
 
-All Static Methods
+Use Facade
 ```php
     // Address
-    \Tusharkhan\BanglaFaker\BanglaFaker::city() //city name
-    \Tusharkhan\BanglaFaker\BanglaFaker::state() //state
-    \Tusharkhan\BanglaFaker\BanglaFaker::street() //street
-    \Tusharkhan\BanglaFaker\BanglaFaker::address() //address
-    \Tusharkhan\BanglaFaker\BanglaFaker::country() //country
-    \Tusharkhan\BanglaFaker\BanglaFaker::postcode() //postcode
-    \Tusharkhan\BanglaFaker\BanglaFaker::cityPrefix() //cityPrefix
-    \Tusharkhan\BanglaFaker\BanglaFaker::streetName() //streetName
-    \Tusharkhan\BanglaFaker\BanglaFaker::citySuffix() //citySuffix
-    \Tusharkhan\BanglaFaker\BanglaFaker::streetSuffix() //streetSuffix
-    \Tusharkhan\BanglaFaker\BanglaFaker::streetNumber() //streetNumber
-    \Tusharkhan\BanglaFaker\BanglaFaker::streetAddress() //streetAddress
-    \Tusharkhan\BanglaFaker\BanglaFaker::banglaStreetName() //banglaStreetName
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::city() //city name
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::state() //state
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::street() //street
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::address() //address
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::country() //country
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::postcode() //postcode
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::cityPrefix() //cityPrefix
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::streetName() //streetName
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::citySuffix() //citySuffix
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::streetSuffix() //streetSuffix
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::streetNumber() //streetNumber
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::streetAddress() //streetAddress
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::banglaStreetName() //banglaStreetName
     
     
     
     // Color Names
-    \Tusharkhan\BanglaFaker\BanglaFaker::colorName() //colorName
-    \Tusharkhan\BanglaFaker\BanglaFaker::safeColorName() //safeColorName
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::colorName() //colorName
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::safeColorName() //safeColorName
     
     
     // Company
-    \Tusharkhan\BanglaFaker\BanglaFaker::companyType() //companyType
-    \Tusharkhan\BanglaFaker\BanglaFaker::companyName() //companyName
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::companyType() //companyType
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::companyName() //companyName
     
     // Date
-    \Tusharkhan\BanglaFaker\BanglaFaker::banglaDate($date = now(), $format = 'd-m-Y H:i:s') //banglaDate
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::banglaDate($date = now(), $format = 'd-m-Y H:i:s') //banglaDate
     
     // Bangla Lorem Ipsum
-    \Tusharkhan\BanglaFaker\BanglaFaker::word() //word
-    \Tusharkhan\BanglaFaker\BanglaFaker::text($maxNbChars = 200) //text
-    \Tusharkhan\BanglaFaker\BanglaFaker::words($nb = 3, $asText = false) //words
-    \Tusharkhan\BanglaFaker\BanglaFaker::sentence($nbWords = 6, $variableNbWords = true) //sentence
-    \Tusharkhan\BanglaFaker\BanglaFaker::sentences($nb = 3, $asText = false) //sentences
-    \Tusharkhan\BanglaFaker\BanglaFaker::paragraphs($nb = 3, $asText = false) //paragraphs
-    \Tusharkhan\BanglaFaker\BanglaFaker::paragraph($nbSentences = 3, $variableNbSentences = true) //paragraph
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::word() //word
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::text($maxNbChars = 200) //text
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::words($nb = 3, $asText = false) //words
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::sentence($nbWords = 6, $variableNbWords = true) //sentence
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::sentences($nb = 3, $asText = false) //sentences
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::paragraphs($nb = 3, $asText = false) //paragraphs
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::paragraph($nbSentences = 3, $variableNbSentences = true) //paragraph
 
     // Numbers
-    \Tusharkhan\BanglaFaker\BanglaFaker::getBanglaNumber($number) //getBanglaNumber
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::getBanglaNumber($number) //getBanglaNumber
 
     // Person 
-    \TusharKhan\BanglaFaker\BanglaFaker::maleName() // maleName
-    \TusharKhan\BanglaFaker\BanglaFaker::lastName() // last name
-    \TusharKhan\BanglaFaker\BanglaFaker::titleMale() // titleMale
-    \TusharKhan\BanglaFaker\BanglaFaker::femaleName() // femaleName
-    \TusharKhan\BanglaFaker\BanglaFaker::titleFemale() // titleFemale
-    \TusharKhan\BanglaFaker\BanglaFaker::firstNameMale() // male first name
-    \TusharKhan\BanglaFaker\BanglaFaker::firstNameFemale() // firstNameFemale
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::maleName() // maleName
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::lastName() // last name
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::titleMale() // titleMale
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::femaleName() // femaleName
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::titleFemale() // titleFemale
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::firstNameMale() // male first name
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::firstNameFemale() // firstNameFemale
 
     // Phone
-    \Tusharkhan\BanglaFaker\BanglaFaker::phone() // Phone
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::phone() // Phone
 ```
 
 
