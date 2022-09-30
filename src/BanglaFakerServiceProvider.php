@@ -19,10 +19,10 @@ class BanglaFakerServiceProvider extends ServiceProvider
         // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
 
-        if ($this->app->runningInConsole()) {
-            $this->publishes([
-                __DIR__ . '/../config/config.php' => config_path('banglafaker.php'),
-            ], 'config');
+//        if ($this->app->runningInConsole()) {
+//            $this->publishes([
+//                __DIR__ . '/../config/config.php' => config_path('banglafaker.php'),
+//            ], 'config');
 
             // Publishing the views.
             /*$this->publishes([
@@ -41,7 +41,7 @@ class BanglaFakerServiceProvider extends ServiceProvider
 
             // Registering package commands.
             // $this->commands([]);
-        }
+//        }
     }
 
     /**
@@ -50,10 +50,10 @@ class BanglaFakerServiceProvider extends ServiceProvider
     public function register()
     {
         // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__ . '/../tusharKhan/Faker/config/config.php', 'banglafaker');
+//        $this->mergeConfigFrom(__DIR__ . '/../tusharKhan/Faker/config/config.php', 'banglafaker');
 
         // Register the main class to use with the facade
-        $this->app->singleton('banglaFaker', function () {
+        $this->app->singleton('BanglaFaker', function () {
             return new BanglaFaker;
         });
     }

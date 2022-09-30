@@ -83,17 +83,10 @@ class Date extends BanglaFaker
     protected static $replace = [];
 
 
-    public static function banglaDate()
+    public static function banglaDate($date = null, $format = 'd-m-Y H:i:s')
     {
-        $arguments = func_get_args();
-        $format = 'd-m-Y H:i:s';
-
-        $date = Carbon::now()->format($format);
-
-        if( count($arguments) > 0 ){
-            $date = ( count($arguments[0]) > 0 && $arguments[0][0] != null ) ? $arguments[0][0] : $date;
-            $format = ( count($arguments[0]) > 1 && $arguments[0][1] != null ) ? $arguments[0][1] : $format;
-        }
+        if ( $date ) $date = Carbon::parse($date)->format($format);
+        else $date = Carbon::now()->format($format);
 
         if( $date ) $date = Carbon::parse($date)->format($format);
 

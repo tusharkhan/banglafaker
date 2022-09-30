@@ -8,16 +8,12 @@
 
 namespace TusharKhan\BanglaFaker\Tests;
 
-class FunctionTest extends \Orchestra\Testbench\TestCase
+use Tusharkhan\BanglaFaker\Facade\BanglaFaker;
+
+class FunctionTest extends TestCase
 {
     public function test_first_function()
     {
         $this->assertTrue(true);
-    }
-
-
-    public function test_unit()
-    {
-        $this->assertTrue( str_contains('testing function', 'function'));
     }
 }
