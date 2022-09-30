@@ -3,7 +3,8 @@
     "description": "A Bangla tusharKhan/Faker Library for Laravel",
     "keywords": [
         "tusharkhan",
-        "banglafaker"
+        "banglafaker",
+        "laravel-bangla-faker"
     ],
     "homepage": "https://github.com/tusharkhan/banglafaker",
     "license": "MIT",
@@ -26,13 +27,16 @@
     "autoload": {
         "psr-4": {
             "Tusharkhan\\BanglaFaker\\": "src",
-            "Tusharkhan\\BanglaFaker\\Lib\\" : "tusharKhan/Faker/Lib"
+            "Tusharkhan\\BanglaFaker\\Lib\\" : "Lib"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tusharkhan\\Banglafaker\\Tests\\": "tests/"
-        }
+            "Tusharkhan\\Banglafaker\\Tests\\": "tests"
+        },
+        "classmap": [
+            "tests"
+        ]
     },
     "scripts": {
         "test": "../../../app/vendor/bin/phpunit",

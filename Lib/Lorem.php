@@ -52,28 +52,7 @@ class Lorem extends BanglaFaker
 
     public static function words($nb = 3, $asText = false)
     {
-        $arguments = func_get_args();
-        $arguments = static::removeEmptyArray($arguments);
-
-        if( count($arguments) > 0 ){
-            if ( ! is_array($arguments[0]) ){
-                $nb = $arguments[0];
-                if( isset($arguments[1]) ){
-                    $asText = $arguments[1];
-                }
-            } else {
-                if ( isset($arguments[0][0]) ){
-                    $nb = $arguments[0][0];
-                }
-                if ( isset($arguments[0][1]) ){
-                    $asText = $arguments[0][1];
-                }
-            }
-        } else {
-            $nb = 3; $asText = false;
-        }
-
-
+        $nb = (int)$nb;
         $words = [];
 
         for ($i = 0; $i < $nb; ++$i) {
@@ -86,28 +65,7 @@ class Lorem extends BanglaFaker
 
     public static function sentence($nbWords = 6, $variableNbWords = true)
     {
-        $arguments = func_get_args();
-        $arguments = static::removeEmptyArray($arguments);
-
-        if( count($arguments) > 0 ){
-            if ( ! is_array($arguments[0]) ){
-                $nbWords = $arguments[0];
-                if( isset($arguments[1]) ){
-                    $variableNbWords = $arguments[1];
-                }
-            } else {
-                if ( isset($arguments[0][0]) ){
-                    $nbWords = $arguments[0][0];
-                }
-                if ( isset($arguments[0][1]) ){
-                    $variableNbWords = $arguments[0][1];
-                }
-            }
-        } else {
-            $nbWords = 6; $variableNbWords = false;
-        }
-
-
+        $nbWords = (int)$nbWords;
         if ($nbWords <= 0) {
             return '';
         }
@@ -124,28 +82,7 @@ class Lorem extends BanglaFaker
 
     public static function sentences($nb = 3, $asText = false)
     {
-        $arguments = func_get_args();
-        $arguments = static::removeEmptyArray($arguments);
-
-        if( count($arguments) > 0 ){
-            if ( ! is_array($arguments[0]) ){
-                $nb = $arguments[0];
-                if( isset($arguments[1]) ){
-                    $asText = $arguments[1];
-                }
-            } else {
-                if ( isset($arguments[0][0]) ){
-                    $nb = $arguments[0][0];
-                }
-                if ( isset($arguments[0][1]) ){
-                    $asText = $arguments[0][1];
-                }
-            }
-        } else {
-            $nb = 3; $asText = false;
-        }
-
-
+        $nb = (int)$nb;
         $sentences = [];
 
         for ($i = 0; $i < $nb; ++$i) {
@@ -158,28 +95,7 @@ class Lorem extends BanglaFaker
 
     public static function paragraph($nbSentences = 3, $variableNbSentences = true)
     {
-        $arguments = func_get_args();
-        $arguments = static::removeEmptyArray($arguments);
-
-        if( count($arguments) > 0 ){
-            if ( ! is_array($arguments[0]) ){
-                $nbSentences = $arguments[0];
-                if( isset($arguments[1]) ){
-                    $variableNbSentences = $arguments[1];
-                }
-            } else {
-                if ( isset($arguments[0][0]) ){
-                    $nbSentences = $arguments[0][0];
-                }
-                if ( isset($arguments[0][1]) ){
-                    $variableNbSentences = $arguments[0][1];
-                }
-            }
-        } else {
-            $nbSentences = 3; $variableNbSentences = true;
-        }
-
-
+        $nbSentences = (int)$nbSentences;
         if ($nbSentences <= 0) {
             return '';
         }
@@ -194,27 +110,7 @@ class Lorem extends BanglaFaker
 
     public static function paragraphs($nb = 3, $asText = false)
     {
-        $arguments = func_get_args();
-        $arguments = static::removeEmptyArray($arguments);
-
-        if( count($arguments) > 0 ){
-            if ( ! is_array($arguments[0]) ){
-                $nb = $arguments[0];
-                if( isset($arguments[1]) ){
-                    $asText = $arguments[1];
-                }
-            } else {
-                if ( isset($arguments[0][0]) ){
-                    $nb = $arguments[0][0];
-                }
-                if ( isset($arguments[0][1]) ){
-                    $asText = $arguments[0][1];
-                }
-            }
-        } else {
-            $nb = 3; $asText = false;
-        }
-
+        $nb = (int)$nb;
         $paragraphs = [];
 
         for ($i = 0; $i < $nb; ++$i) {
