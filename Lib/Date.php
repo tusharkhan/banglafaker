@@ -88,8 +88,6 @@ class Date extends BanglaFaker
         if ( $date ) $date = Carbon::parse($date)->format($format);
         else $date = Carbon::now()->format($format);
 
-        if( $date ) $date = Carbon::parse($date)->format($format);
-
         return static::parseDate($date, $format);
     }
 
