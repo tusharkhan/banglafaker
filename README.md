@@ -10,7 +10,7 @@
 
 This is a Bangla Faker generator for [Laravel](https://laravel.com/) projects . This is my first package , so if you found any bug or any issue . Please let me know . So that we can debug together.
 
-Tis package is for Laravel Version < 9.x
+This package is for Laravel Version >= 9.x
 
 ## Installation
 
