@@ -55,7 +55,7 @@ class ObjectReferenceTest extends \TusharKhan\BanglaFaker\Tests\TestCase
     {
         $faker = $this->getBanglaFakerReference();
 
-        $this->assertIsArray($faker->paragraphs(9, true));
+        $this->assertIsArray($faker->paragraphs(9, false));
     }
 
 
