@@ -1,59 +1,59 @@
 {
-    "name": "tusharkhan/banglafaker",
-    "description": "A Bangla tusharKhan/Faker Library for Laravel",
-    "keywords": [
-        "tusharkhan",
-        "banglafaker",
-        "laravel-bangla-faker"
-    ],
-    "homepage": "https://github.com/tusharkhan/banglafaker",
-    "license": "MIT",
-    "type": "library",
-    "authors": [
-        {
-            "name": "Tushar Khan",
-            "email": "tushar.khan0122@gmail.com",
-            "role": "Developer"
-        }
-    ],
-    "require": {
-        "php": "^7.4|^8.0",
-        "illuminate/support": "^8.0"
-    },
-    "require-dev": {
-        "orchestra/testbench": "^6.0",
-        "phpunit/phpunit": "^9.5"
-    },
-    "autoload": {
-        "psr-4": {
-            "Tusharkhan\\BanglaFaker\\": "src",
-            "Tusharkhan\\BanglaFaker\\Lib\\" : "Lib"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Tusharkhan\\Banglafaker\\Tests\\": "tests"
-        },
-        "classmap": [
-            "tests"
-        ]
-    },
-    "scripts": {
-        "test": "../../../app/vendor/bin/phpunit",
-        "test-coverage": "../../../app/vendor/bin/phpunit --coverage-html coverage"
-
-    },
-    "config": {
-        "sort-packages": true
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "\\Tusharkhan\\BanglaFaker\\BanglaFakerServiceProvider"
-            ],
-            "aliases": {
-                "Banglafaker": "\\Tusharkhan\\BanglaFaker\\BanglaFakerFacade"
-            }
-        }
+  "name": "tusharkhan/banglafaker",
+  "description": "A Bangla tusharKhan/Faker Library for Laravel",
+  "keywords": [
+    "tusharkhan",
+    "banglafaker",
+    "laravel-bangla-faker"
+  ],
+  "homepage": "https://github.com/tusharkhan/banglafaker",
+  "license": "MIT",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Tushar Khan",
+      "email": "tushar.khan0122@gmail.com",
+      "role": "Developer"
     }
+  ],
+  "require": {
+    "php": "^7.4|^8.0",
+    "illuminate/support": "^9.48"
+  },
+  "require-dev": {
+    "orchestra/testbench": "^7.19",
+    "phpunit/phpunit": "^9.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "Tusharkhan\\BanglaFaker\\": "src",
+      "Tusharkhan\\BanglaFaker\\Lib\\" : "Lib"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "TusharKhan\\BanglaFaker\\Tests\\": "tests"
+    },
+    "classmap": [
+      "tests"
+    ]
+  },
+  "scripts": {
+    "test": "../../../app/vendor/bin/phpunit",
+    "test-coverage": "../../../app/vendor/bin/phpunit --coverage-html coverage"
+
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "\\Tusharkhan\\BanglaFaker\\BanglaFakerServiceProvider"
+      ],
+      "aliases": {
+        "Banglafaker": "\\Tusharkhan\\BanglaFaker\\BanglaFakerFacade"
+      }
+    }
+  }
 }
