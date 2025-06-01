@@ -1,3 +1,5 @@
+<img src="bangla_faker.png">
+
 # A Laravel Bangla Faker Generator followed by [PHP Faker](https://fakerphp.github.io/)
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/alaminfirdows/laravel-editorjs.svg?style=flat-square)](https://packagist.org/packages/alaminfirdows/laravel-editorjs)
