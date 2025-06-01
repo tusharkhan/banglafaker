@@ -1,4 +1,4 @@
-<img src="bangla_faker.png">
+<img src="bangla_faker.jpg">
 
 # A Laravel Bangla Faker Generator followed by [PHP Faker](https://fakerphp.github.io/)
 
