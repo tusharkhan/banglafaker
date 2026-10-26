@@ -52,7 +52,7 @@
         "\\Tusharkhan\\BanglaFaker\\BanglaFakerServiceProvider"
       ],
       "aliases": {
-        "Banglafaker": "\\Tusharkhan\\BanglaFaker\\BanglaFakerFacade"
+        "BanglaFaker": "\\Tusharkhan\\BanglaFaker\\Facade\\BanglaFaker"
       }
     }
   }
