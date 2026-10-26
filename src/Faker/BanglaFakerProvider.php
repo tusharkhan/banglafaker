@@ -101,6 +101,48 @@ class BanglaFakerProvider
         return BanglaFaker::country();
     }
 
+    // Location
+
+    public function banglaDivision()
+    {
+        return BanglaFaker::division();
+    }
+
+    public function banglaDistrict($division = null)
+    {
+        return BanglaFaker::district($division);
+    }
+
+    public function banglaUpazila($district = null)
+    {
+        return BanglaFaker::upazila($district);
+    }
+
+    public function banglaUnion($upazila = null, $district = null)
+    {
+        return BanglaFaker::union($upazila, $district);
+    }
+
+    public function banglaThana($district = null)
+    {
+        return BanglaFaker::thana($district);
+    }
+
+    public function banglaPostOffice($district = null)
+    {
+        return BanglaFaker::postOffice($district);
+    }
+
+    public function banglaPostalCode($district = null, $banglaDigits = true)
+    {
+        return BanglaFaker::postalCode($district, $banglaDigits);
+    }
+
+    public function banglaLocation()
+    {
+        return BanglaFaker::location();
+    }
+
     // Number
 
     public function banglaNumber($number)

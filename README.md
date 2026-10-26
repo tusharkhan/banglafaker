@@ -52,6 +52,18 @@ Use Facade
     
     
     
+    // Real places (see "Real places" below)
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::division() // division
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::district($division = null) // district
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::upazila($district = null) // upazila
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::union($upazila = null, $district = null) // union
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::thana($district = null) // thana
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::postOffice($district = null) // post office
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::postalCode($district = null, $banglaDigits = true) // real 4-digit post code
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::location() // full consistent location
+
+
+
     // Color Names
     \Tusharkhan\BanglaFaker\Facade\BanglaFaker::colorName() //colorName
     \Tusharkhan\BanglaFaker\Facade\BanglaFaker::safeColorName() //safeColorName
@@ -115,6 +127,18 @@ All Methods with object reference
     
     
     
+    // Real places (see "Real places" below)
+    $banglaFaker->division() // division
+    $banglaFaker->district($division = null) // district
+    $banglaFaker->upazila($district = null) // upazila
+    $banglaFaker->union($upazila = null, $district = null) // union
+    $banglaFaker->thana($district = null) // thana
+    $banglaFaker->postOffice($district = null) // post office
+    $banglaFaker->postalCode($district = null, $banglaDigits = true) // real 4-digit post code
+    $banglaFaker->location() // full consistent location
+
+
+
     // Color Names
     $banglaFaker->colorName() //colorName
     $banglaFaker->safeColorName() //safeColorName
@@ -188,11 +212,50 @@ Faker modifiers such as `unique()` and `optional()` work, and `fake()->seed(123)
 | Person | `banglaMaleName`, `banglaFemaleName`, `banglaFirstNameMale`, `banglaFirstNameFemale`, `banglaLastName`, `banglaTitleMale`, `banglaTitleFemale` |
 | Company | `banglaCompanyName`, `banglaCompanyType` |
 | Phone | `banglaPhone`, `banglaMobileNumber` |
+| Real places | `banglaDivision`, `banglaDistrict`, `banglaUpazila`, `banglaUnion`, `banglaThana`, `banglaPostOffice`, `banglaPostalCode`, `banglaLocation` |
 | Color | `banglaColorName`, `banglaSafeColorName` |
 | Text | `banglaWord`, `banglaWords`, `banglaSentence`, `banglaSentences`, `banglaParagraph`, `banglaParagraphs` |
 | Date & numbers | `banglaDate($date, $format)`, `banglaNumber($number)` |
 
 `banglaStreetName()` returns a full street name (e.g. "হাজী সড়ক"); `banglaStreetBaseName()` returns the name without the suffix.
+
+### Real places
+
+Real divisions, districts, upazilas, unions, thanas, post offices and post codes, in Bangla.
+Pass a parent to stay inside it:
+
+```php
+BanglaFaker::division();                    // চট্টগ্রাম
+BanglaFaker::district('চট্টগ্রাম');          // a district in Chattogram division
+BanglaFaker::upazila('কুমিল্লা');            // an upazila in Cumilla
+BanglaFaker::union('দেবিদ্বার');             // a union in Debidwar
+BanglaFaker::union('কালীগঞ্জ', 'গাজীপুর');   // upazila names can repeat across districts
+BanglaFaker::thana('ঢাকা');                 // উত্তরা
+BanglaFaker::postOffice('ঢাকা');
+BanglaFaker::postalCode('ঢাকা');            // ১২৩০
+BanglaFaker::postalCode('ঢাকা', false);     // 1230
+```
+
+`location()` returns one location whose parts belong together:
+
+```php
+BanglaFaker::location();
+// ['division' => 'ঢাকা', 'district' => 'গাজীপুর', 'upazila' => 'কালীগঞ্জ', 'union' => '…',
+//  'thana' => '…', 'post_office' => '…', 'postcode' => '১৭২০']
+```
+
+The union is in the upazila, and the upazila, thana and post office are in the district. Thanas and
+upazilas are separate systems (police/postal vs. administrative), so a thana is not always the
+upazila of the same name. Unknown place names throw an `InvalidArgumentException`. `য়`, `ড়` and `ঢ়`
+match whichever way they are typed.
+
+The older `postcode()`, `state()`, `city()` and `address()` methods are unchanged.
+
+Data: 8 divisions, 64 districts, 494 upazilas, 4,537 unions, 488 thanas and 1,347 post offices, from
+[nuhil/bangladesh-geocode](https://github.com/nuhil/bangladesh-geocode) and
+[TanjidulIslamToha/bangladesh-postal-codes-database](https://github.com/TanjidulIslamToha/bangladesh-postal-codes-database)
+(both MIT, see [`Lib/data/LICENSES.md`](Lib/data/LICENSES.md)). To refresh it, run
+`scripts/build-locations.py` (instructions at the top of the script).
 
 ### Mobile numbers
 
