@@ -79,8 +79,6 @@ class Date extends BanglaFaker
         'bn' => ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯']
     ];
 
-    protected static $search = [];
-    protected static $replace = [];
 
 
     public static function banglaDate($date = null, $format = 'd-m-Y H:i:s')
@@ -98,17 +96,18 @@ class Date extends BanglaFaker
         $keys = array_keys($allConstants);
 
         $formatArray = array_unique(str_split($format));
+        $translations = [];
 
         foreach ( $formatArray as $letter ){
             if ( preg_match('/^[a-zA-Z]+$/', $letter) ){
                 if( in_array($letter, $keys) ){
-                    static::$search = array_merge_recursive(static::$search, $allConstants[$letter]['en']);
-                    static::$replace = array_merge_recursive(static::$replace, $allConstants[$letter]['bn']);
+                    $translations += array_combine($allConstants[$letter]['en'], $allConstants[$letter]['bn']);
                 }
             }
         }
 
-        return Number::getBanglaNumber(str_replace(self::$search, self::$replace, $date));
+        // strtr() matches the longest key first, so "Sunday" is never split into "Sun" + "day"
+        return Number::getBanglaNumber(strtr($date, $translations));
 
     }
 }
