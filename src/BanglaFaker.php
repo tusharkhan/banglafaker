@@ -32,7 +32,7 @@ class BanglaFaker extends BaseFaker
             }
         }
 
-        return new \Exception( $name .  ' Method not found');
+        throw new \BadMethodCallException(sprintf('Call to undefined method %s::%s()', static::class, $name));
     }
 
 
@@ -49,7 +49,7 @@ class BanglaFaker extends BaseFaker
             }
         }
 
-        return new \Exception( $method .  ' Method not found');
+        throw new \BadMethodCallException(sprintf('Call to undefined method %s::%s()', static::class, $method));
     }
 
     public static function getBanglaNumber($number)
