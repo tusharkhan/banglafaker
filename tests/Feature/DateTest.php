@@ -2,6 +2,7 @@
 
 namespace TusharKhan\BanglaFaker\Tests;
 
+use PHPUnit\Framework\Attributes\PreserveGlobalState;
 use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 use Tusharkhan\BanglaFaker\Facade\BanglaFaker;
 
@@ -16,8 +17,10 @@ class DateTest extends TestCase
      * Runs in a separate process so no earlier test has primed Date's state.
      *
      * @runInSeparateProcess
+     * @preserveGlobalState disabled
      */
     #[RunInSeparateProcess]
+    #[PreserveGlobalState(false)]
     public function test_earlier_formats_do_not_leak_into_later_calls()
     {
         BanglaFaker::banglaDate('12-09-2021', 'D');
@@ -27,8 +30,10 @@ class DateTest extends TestCase
 
     /**
      * @runInSeparateProcess
+     * @preserveGlobalState disabled
      */
     #[RunInSeparateProcess]
+    #[PreserveGlobalState(false)]
     public function test_short_and_long_names_in_one_format()
     {
         $this->assertEquals('রবি রবিবার, সেপ্টেম্বর', BanglaFaker::banglaDate('12-09-2021', 'D l, F'));
