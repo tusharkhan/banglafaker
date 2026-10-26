@@ -341,7 +341,7 @@ class BaseFaker
         }, $regex);
         // (this|that) becomes 'this' or 'that'
         $regex = preg_replace_callback('/\((.*?)\)/', static function ($matches) {
-            return Base::randomElement(explode('|', str_replace(['(', ')'], '', $matches[1])));
+            return self::randomElement(explode('|', str_replace(['(', ')'], '', $matches[1])));
         }, $regex);
         // All A-F inside of [] become ABCDEF
         $regex = preg_replace_callback('/\[([^\]]+)\]/', static function ($matches) {
