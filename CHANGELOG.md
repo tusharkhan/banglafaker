@@ -52,3 +52,9 @@ All notable changes to `banglafaker` will be documented in this file
 ### Changed
 - Calling an unknown method now throws `BadMethodCallException` instead of returning an `Exception` object.
 - Minimum PHP version is 8.0.2 (Laravel 9's own minimum).
+
+
+## 2.2.1 - 2026-10-26
+
+### Fixed
+- `banglaDate()` left uppercase `AM`/`PM` (the `A` format) untranslated.
