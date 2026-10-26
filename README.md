@@ -151,6 +151,47 @@ All Methods with object reference
     $banglaFaker->phone() // Phone
 ```
 
+## Use in Laravel factories and `fake()`
+
+When [Faker](https://fakerphp.github.io/) is installed (it is in every new Laravel app), every generator is also
+available on Laravel's Faker instance with a `bangla` prefix. Faker's own English formatters such as
+`city()` or `name()` are not changed.
+
+```php
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+class CustomerFactory extends Factory
+{
+    public function definition(): array
+    {
+        return [
+            'name'    => $this->faker->banglaMaleName(),
+            'company' => $this->faker->banglaCompanyName(),
+            'address' => $this->faker->banglaAddress(),
+            'phone'   => $this->faker->unique()->banglaPhone(),
+            'bio'     => $this->faker->optional()->banglaParagraph(),
+        ];
+    }
+}
+
+fake()->banglaCity();          // anywhere in your app or tests
+fake()->banglaWords(4, true);  // arguments work as usual
+```
+
+Faker modifiers such as `unique()` and `optional()` work, and `fake()->seed(123)` makes the output repeatable.
+
+| Area | Methods |
+|------|---------|
+| Address | `banglaAddress`, `banglaCity`, `banglaCityPrefix`, `banglaCitySuffix`, `banglaState`, `banglaCountry`, `banglaPostcode`, `banglaStreet`, `banglaStreetName`, `banglaStreetBaseName`, `banglaStreetSuffix`, `banglaStreetNumber`, `banglaStreetAddress` |
+| Person | `banglaMaleName`, `banglaFemaleName`, `banglaFirstNameMale`, `banglaFirstNameFemale`, `banglaLastName`, `banglaTitleMale`, `banglaTitleFemale` |
+| Company | `banglaCompanyName`, `banglaCompanyType` |
+| Phone | `banglaPhone` |
+| Color | `banglaColorName`, `banglaSafeColorName` |
+| Text | `banglaWord`, `banglaWords`, `banglaSentence`, `banglaSentences`, `banglaParagraph`, `banglaParagraphs` |
+| Date & numbers | `banglaDate($date, $format)`, `banglaNumber($number)` |
+
+`banglaStreetName()` returns a full street name (e.g. "হাজী সড়ক"); `banglaStreetBaseName()` returns the name without the suffix.
+
 ### Testing
 
 ```bash
