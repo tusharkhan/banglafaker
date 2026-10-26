@@ -66,7 +66,7 @@ class Date extends BanglaFaker
 
     public const A = [
         'en' => [
-            'am', 'pm'
+            'AM', 'PM'
         ],
         'bn' => [
             'পূর্বাহ্ণ', 'অপরাহ্ণ'

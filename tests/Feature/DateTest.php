@@ -38,4 +38,11 @@ class DateTest extends TestCase
     {
         $this->assertEquals('রবি রবিবার, সেপ্টেম্বর', BanglaFaker::banglaDate('12-09-2021', 'D l, F'));
     }
+
+    public function test_meridiem_lowercase_and_uppercase()
+    {
+        $this->assertEquals('০৩:০০ অপরাহ্ণ', BanglaFaker::banglaDate('2021-09-12 15:00', 'h:i a'));
+        $this->assertEquals('০৩:০০ অপরাহ্ণ', BanglaFaker::banglaDate('2021-09-12 15:00', 'h:i A'));
+        $this->assertEquals('০৯:০০ পূর্বাহ্ণ', BanglaFaker::banglaDate('2021-09-12 09:00', 'h:i A'));
+    }
 }
