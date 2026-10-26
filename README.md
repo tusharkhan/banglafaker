@@ -9,8 +9,10 @@
 ![license](https://img.shields.io/github/license/tusharkhan/banglafaker)
 ![php-version](https://img.shields.io/packagist/php-v/tusharkhan/banglafaker)
 
+Fake Bangla data for [Laravel](https://laravel.com/) projects: names, addresses, real places, phone numbers,
+companies, colors, dates, numbers and Bangla lorem ipsum. Use it in seeders, factories, tests and demos.
 
-This is a Bangla Faker generator for [Laravel](https://laravel.com/) projects . This is my first package , so if you found any bug or any issue . Please let me know . So that we can debug together.
+If you find a bug or have an idea, please [open an issue](https://github.com/tusharkhan/banglafaker/issues).
 
 ## Requirements
 
@@ -24,134 +26,127 @@ This is a Bangla Faker generator for [Laravel](https://laravel.com/) projects . 
 
 ## Installation
 
-You can install the package via composer:
-
 ```bash
 composer require tusharkhan/banglafaker
 ```
 
+The service provider and the `BanglaFaker` facade are registered automatically.
+
 ## Usage
 
+Call any method on the facade:
 
-Use Facade
 ```php
-    // Address
-    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::city() //city name
-    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::state() //state
-    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::street() //street
-    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::address() //address
-    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::country() //country
-    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::postcode() //postcode
-    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::cityPrefix() //cityPrefix
-    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::streetName() //streetName
-    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::citySuffix() //citySuffix
-    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::streetSuffix() //streetSuffix
-    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::streetNumber() //streetNumber
-    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::streetAddress() //streetAddress
-    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::banglaStreetName() //banglaStreetName
-    
-    
-    
-    // Color Names
-    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::colorName() //colorName
-    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::safeColorName() //safeColorName
-    
-    
-    // Company
-    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::companyType() //companyType
-    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::companyName() //companyName
-    
-    // Date
-    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::banglaDate($date = now(), $format = 'd-m-Y H:i:s') //banglaDate
-    
-    // Bangla Lorem Ipsum
-    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::word() //word
-    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::text($maxNbChars = 200) //text
-    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::words($nb = 3, $asText = false) //words
-    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::sentence($nbWords = 6, $variableNbWords = true) //sentence
-    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::sentences($nb = 3, $asText = false) //sentences
-    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::paragraphs($nb = 3, $asText = false) //paragraphs
-    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::paragraph($nbSentences = 3, $variableNbSentences = true) //paragraph
+use Tusharkhan\BanglaFaker\Facade\BanglaFaker;
 
-    // Numbers
-    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::getBanglaNumber($number) //getBanglaNumber
-
-    // Person 
-    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::maleName() // maleName
-    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::lastName() // last name
-    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::titleMale() // titleMale
-    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::femaleName() // femaleName
-    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::titleFemale() // titleFemale
-    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::firstNameMale() // male first name
-    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::firstNameFemale() // firstNameFemale
-
-    // Phone
-    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::phone() // +৮৮০১৭১২৩৪৫৬৭৮
-    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::mobileNumber($withCountryCode = false, $banglaDigits = false, $operator = null) // 01712345678
+BanglaFaker::maleName();      // হাসনাত তাবাসসুম
+BanglaFaker::address();       // ৯৩ বরকত, কাটা খানা চিটাগং
+BanglaFaker::mobileNumber();  // 01967128519
 ```
 
+or on an instance. The methods are the same:
 
-
-All Methods with object reference
 ```php
-    use Tusharkhan\BanglaFaker\BanglaFaker;
+use Tusharkhan\BanglaFaker\BanglaFaker;
 
-    $banglaFaker = new BanglaFaker();
-    
-    // Address
-    $banglaFaker->city() //city name
-    $banglaFaker->state() //state
-    $banglaFaker->street() //street
-    $banglaFaker->address() //address
-    $banglaFaker->country() //country
-    $banglaFaker->postcode() //postcode
-    $banglaFaker->cityPrefix() //cityPrefix
-    $banglaFaker->streetName() //streetName
-    $banglaFaker->citySuffix() //citySuffix
-    $banglaFaker->streetSuffix() //streetSuffix
-    $banglaFaker->streetNumber() //streetNumber
-    $banglaFaker->streetAddress() //streetAddress
-    $banglaFaker->banglaStreetName() //banglaStreetName
-    
-    
-    
-    // Color Names
-    $banglaFaker->colorName() //colorName
-    $banglaFaker->safeColorName() //safeColorName
-    
-    
-    // Company
-    $banglaFaker->companyType() //companyType
-    $banglaFaker->companyName() //companyName
-    
-    // Date
-    $banglaFaker->banglaDate($date = now(), $format = 'd-m-Y H:i:s') //banglaDate
-    
-    // Bangla Lorem Ipsum
-    $banglaFaker->word() //word
-    $banglaFaker->text($maxNbChars = 200) //text
-    $banglaFaker->words($nb = 3, $asText = false) //words
-    $banglaFaker->sentences($nb = 3, $asText = false) //sentences
-    $banglaFaker->paragraphs($nb = 3, $asText = false) //paragraphs
-    $banglaFaker->sentence($nbWords = 6, $variableNbWords = true) //sentence
-    $banglaFaker->paragraph($nbSentences = 3, $variableNbSentences = true) //paragraph
-
-    // Numbers
-    $banglaFaker->getBanglaNumber($number) //getBanglaNumber
-
-    // Person 
-    $banglaFaker->maleName() // maleName
-    $banglaFaker->lastName() // last name
-    $banglaFaker->titleMale() // titleMale
-    $banglaFaker->femaleName() // femaleName
-    $banglaFaker->titleFemale() // titleFemale
-    $banglaFaker->firstNameMale() // male first name
-    $banglaFaker->firstNameFemale() // firstNameFemale
-
-    // Phone
-    $banglaFaker->phone() // +৮৮০১৭১২৩৪৫৬৭৮
-    $banglaFaker->mobileNumber($withCountryCode = false, $banglaDigits = false, $operator = null) // 01712345678
+$faker = new BanglaFaker();
+$faker->companyName();
 ```
+
+Calling a method that doesn't exist throws a `BadMethodCallException`.
+
+### All methods
+
+Sample output is random; yours will differ.
+
+**Person**
+
+| Method | Example |
+|--------|---------|
+| `maleName()` | হাসনাত তাবাসসুম |
+| `femaleName()` | মিসেস. হাসিন তাসনীম |
+| `firstNameMale()` | জলিল |
+| `firstNameFemale()` | সাবরিন |
+| `lastName()` | শিকদার |
+| `titleMale()` | মি. |
+| `titleFemale()` | মিস. |
+
+**Address**
+
+| Method | Example |
+|--------|---------|
+| `address()` | ৯৩ বরকত, কাটা খানা চিটাগং |
+| `streetAddress()` | ৪৯ করিমউদ্দিন |
+| `street()` | বরকত ব্রীজ |
+| `streetName()` | হাজী ক্যাম্প |
+| `banglaStreetName()` | বরকত |
+| `streetSuffix()` | ব্রীজ |
+| `streetNumber()` | ৬৪ |
+| `city()` | লেইক টাউন |
+| `cityPrefix()` | দক্ষিন |
+| `citySuffix()` | টাউন |
+| `state()` | বরিশাল |
+| `postcode()` | ২১২৭২ |
+| `country()` | ক্রিসমাস দ্বীপ |
+
+For real place names and real post codes, use the [Real places](#real-places) methods.
+
+**Real places**: see [Real places](#real-places)
+
+| Method | Example |
+|--------|---------|
+| `division()` | চট্টগ্রাম |
+| `district($division = null)` | কুমিল্লা |
+| `upazila($district = null)` | দেবিদ্বার |
+| `union($upazila = null, $district = null)` | a union in the upazila |
+| `thana($district = null)` | উত্তরা |
+| `postOffice($district = null)` | a post office in the district |
+| `postalCode($district = null, $banglaDigits = true)` | ১২৩০ |
+| `location()` | all of the above, consistent with each other |
+
+**Phone**: see [Mobile numbers](#mobile-numbers)
+
+| Method | Example |
+|--------|---------|
+| `phone()` | +৮৮০১৭০২৫০৫৯২২ |
+| `mobileNumber($withCountryCode = false, $banglaDigits = false, $operator = null)` | 01967128519 |
+
+**Company**
+
+| Method | Example |
+|--------|---------|
+| `companyName()` | বাবলু |
+| `companyType()` | সার |
+
+**Color**
+
+| Method | Example |
+|--------|---------|
+| `colorName()` | টমেটো |
+| `safeColorName()` | ধূসর |
+
+**Text (Bangla lorem ipsum)**
+
+| Method | Example |
+|--------|---------|
+| `word()` | ডোলোরিবাস |
+| `words($nb = 3, $asText = false)` | an array of words, or a string when `$asText` is `true` |
+| `sentence($nbWords = 6, $variableNbWords = true)` | লেজ করে দুর্বলতার ক্লান্ত কাম নিজে দেহের কৌশল । |
+| `sentences($nb = 3, $asText = false)` | an array of sentences, or a string |
+| `paragraph($nbSentences = 3, $variableNbSentences = true)` | a paragraph |
+| `paragraphs($nb = 3, $asText = false)` | an array of paragraphs, or a string |
+
+**Date and numbers**
+
+| Method | Example |
+|--------|---------|
+| `banglaDate('2024-01-15 10:30:00')` | ১৫-০১-২০২৪ ১০:৩০:০০ |
+| `banglaDate('2024-01-15', 'l, j F Y')` | সোমবার, ১৫ জানুয়ারি ২০২৪ |
+| `getBanglaNumber(2024)` | ২০২৪ |
+
+`banglaDate($date = null, $format = 'd-m-Y H:i:s')` takes any date PHP can parse (or the current time when `$date`
+is `null`) and a PHP [date format](https://www.php.net/manual/en/datetime.format.php). Digits, day names and
+month names come out in Bangla.
 
 ## Use in Laravel factories and `fake()`
 
@@ -188,13 +183,52 @@ Faker modifiers such as `unique()` and `optional()` work, and `fake()->seed(123)
 | Person | `banglaMaleName`, `banglaFemaleName`, `banglaFirstNameMale`, `banglaFirstNameFemale`, `banglaLastName`, `banglaTitleMale`, `banglaTitleFemale` |
 | Company | `banglaCompanyName`, `banglaCompanyType` |
 | Phone | `banglaPhone`, `banglaMobileNumber` |
+| Real places | `banglaDivision`, `banglaDistrict`, `banglaUpazila`, `banglaUnion`, `banglaThana`, `banglaPostOffice`, `banglaPostalCode`, `banglaLocation` |
 | Color | `banglaColorName`, `banglaSafeColorName` |
 | Text | `banglaWord`, `banglaWords`, `banglaSentence`, `banglaSentences`, `banglaParagraph`, `banglaParagraphs` |
 | Date & numbers | `banglaDate($date, $format)`, `banglaNumber($number)` |
 
 `banglaStreetName()` returns a full street name (e.g. "হাজী সড়ক"); `banglaStreetBaseName()` returns the name without the suffix.
 
-### Mobile numbers
+## Real places
+
+Real divisions, districts, upazilas, unions, thanas, post offices and post codes, in Bangla.
+Pass a parent to stay inside it:
+
+```php
+BanglaFaker::division();                    // চট্টগ্রাম
+BanglaFaker::district('চট্টগ্রাম');          // a district in Chattogram division
+BanglaFaker::upazila('কুমিল্লা');            // an upazila in Cumilla
+BanglaFaker::union('দেবিদ্বার');             // a union in Debidwar
+BanglaFaker::union('কালীগঞ্জ', 'গাজীপুর');   // upazila names can repeat across districts
+BanglaFaker::thana('ঢাকা');                 // উত্তরা
+BanglaFaker::postOffice('ঢাকা');
+BanglaFaker::postalCode('ঢাকা');            // ১২৩০
+BanglaFaker::postalCode('ঢাকা', false);     // 1230
+```
+
+`location()` returns one location whose parts belong together:
+
+```php
+BanglaFaker::location();
+// ['division' => 'ঢাকা', 'district' => 'গাজীপুর', 'upazila' => 'কালীগঞ্জ', 'union' => '…',
+//  'thana' => '…', 'post_office' => '…', 'postcode' => '১৭২০']
+```
+
+The union is in the upazila, and the upazila, thana and post office are in the district. Thanas and
+upazilas are separate systems (police/postal vs. administrative), so a thana is not always the
+upazila of the same name. Unknown place names throw an `InvalidArgumentException`. `য়`, `ড়` and `ঢ়`
+match whichever way they are typed.
+
+The older `postcode()`, `state()`, `city()` and `address()` methods are unchanged.
+
+Data: 8 divisions, 64 districts, 494 upazilas, 4,537 unions, 488 thanas and 1,347 post offices, from
+[nuhil/bangladesh-geocode](https://github.com/nuhil/bangladesh-geocode) and
+[TanjidulIslamToha/bangladesh-postal-codes-database](https://github.com/TanjidulIslamToha/bangladesh-postal-codes-database)
+(both MIT, see [`Lib/data/LICENSES.md`](Lib/data/LICENSES.md)). To refresh it, run
+`scripts/build-locations.py` (instructions at the top of the script).
+
+## Mobile numbers
 
 Numbers always use a real operator prefix.
 
@@ -213,23 +247,25 @@ BanglaFaker::phone();                                    // +৮৮০১৭১�
 | `banglalink` | 019, 014 |
 | `teletalk` | 015 |
 
-### Testing
+Operator names are case-insensitive; an unknown operator throws an `InvalidArgumentException`.
+
+## Testing
 
 ```bash
 composer test
 ```
 
-### Changelog
+## Changelog
 
-Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
+Please see [CHANGELOG](CHANGELOG.md) for what has changed recently.
 
 ## Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
-### Security
+## Security
 
-If you discover any security related issues, please email tushar.khan0122@gmail.com instead of using the issue tracker.
+If you discover a security issue, please email tushar.khan0122@gmail.com instead of using the issue tracker.
 
 ## Credits
 
@@ -239,4 +275,3 @@ If you discover any security related issues, please email tushar.khan0122@gmail.
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
-
