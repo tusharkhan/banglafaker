@@ -287,10 +287,10 @@ class Address extends BanglaFaker
         '{{cityPrefix}} {{citySuffix}}',
     ];
     protected static $streetNameFormats = [
-        '{{streetNames}} {{streetSuffix}}',
+        '{{banglaStreetName}} {{streetSuffix}}',
     ];
     protected static $streetAddressFormats = [
-        '{{streetNumber}} {{streetNames}}',
+        '{{streetNumber}} {{banglaStreetName}}',
     ];
     protected static $addressFormats = [
         '{{streetAddress}}, {{city}} {{state}}',
