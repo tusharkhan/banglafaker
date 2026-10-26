@@ -12,7 +12,15 @@
 
 This is a Bangla Faker generator for [Laravel](https://laravel.com/) projects . This is my first package , so if you found any bug or any issue . Please let me know . So that we can debug together.
 
-This package is for Laravel Version >= 9.x
+## Requirements
+
+| Laravel | PHP |
+|---------|-----|
+| 9.x     | 8.0 – 8.2 |
+| 10.x    | 8.1 – 8.3 |
+| 11.x    | 8.2 – 8.4 |
+| 12.x    | 8.2 – 8.5 |
+| 13.x    | 8.3 – 8.5 |
 
 ## Installation
 
