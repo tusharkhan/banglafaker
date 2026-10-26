@@ -115,6 +115,11 @@ class BanglaFakerProvider
         return BanglaFaker::phone();
     }
 
+    public function banglaMobileNumber($withCountryCode = false, $banglaDigits = false, $operator = null)
+    {
+        return BanglaFaker::mobileNumber($withCountryCode, $banglaDigits, $operator);
+    }
+
     // Date
 
     public function banglaDate($date = null, $format = 'd-m-Y H:i:s')

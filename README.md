@@ -86,7 +86,8 @@ Use Facade
     \Tusharkhan\BanglaFaker\Facade\BanglaFaker::firstNameFemale() // firstNameFemale
 
     // Phone
-    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::phone() // Phone
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::phone() // +৮৮০১৭১২৩৪৫৬৭৮
+    \Tusharkhan\BanglaFaker\Facade\BanglaFaker::mobileNumber($withCountryCode = false, $banglaDigits = false, $operator = null) // 01712345678
 ```
 
 
@@ -148,7 +149,8 @@ All Methods with object reference
     $banglaFaker->firstNameFemale() // firstNameFemale
 
     // Phone
-    $banglaFaker->phone() // Phone
+    $banglaFaker->phone() // +৮৮০১৭১২৩৪৫৬৭৮
+    $banglaFaker->mobileNumber($withCountryCode = false, $banglaDigits = false, $operator = null) // 01712345678
 ```
 
 ## Use in Laravel factories and `fake()`
@@ -185,12 +187,31 @@ Faker modifiers such as `unique()` and `optional()` work, and `fake()->seed(123)
 | Address | `banglaAddress`, `banglaCity`, `banglaCityPrefix`, `banglaCitySuffix`, `banglaState`, `banglaCountry`, `banglaPostcode`, `banglaStreet`, `banglaStreetName`, `banglaStreetBaseName`, `banglaStreetSuffix`, `banglaStreetNumber`, `banglaStreetAddress` |
 | Person | `banglaMaleName`, `banglaFemaleName`, `banglaFirstNameMale`, `banglaFirstNameFemale`, `banglaLastName`, `banglaTitleMale`, `banglaTitleFemale` |
 | Company | `banglaCompanyName`, `banglaCompanyType` |
-| Phone | `banglaPhone` |
+| Phone | `banglaPhone`, `banglaMobileNumber` |
 | Color | `banglaColorName`, `banglaSafeColorName` |
 | Text | `banglaWord`, `banglaWords`, `banglaSentence`, `banglaSentences`, `banglaParagraph`, `banglaParagraphs` |
 | Date & numbers | `banglaDate($date, $format)`, `banglaNumber($number)` |
 
 `banglaStreetName()` returns a full street name (e.g. "হাজী সড়ক"); `banglaStreetBaseName()` returns the name without the suffix.
+
+### Mobile numbers
+
+Numbers always use a real operator prefix.
+
+```php
+BanglaFaker::mobileNumber();                             // 01712345678
+BanglaFaker::mobileNumber(true);                         // +8801712345678
+BanglaFaker::mobileNumber(false, true);                  // ০১৭১২৩৪৫৬৭৮
+BanglaFaker::mobileNumber(false, false, 'grameenphone'); // 017… or 013…
+BanglaFaker::phone();                                    // +৮৮০১৭১২৩৪৫৬৭৮
+```
+
+| Operator | Prefixes |
+|----------|----------|
+| `grameenphone` | 017, 013 |
+| `robi` | 018, 016 |
+| `banglalink` | 019, 014 |
+| `teletalk` | 015 |
 
 ### Testing
 
