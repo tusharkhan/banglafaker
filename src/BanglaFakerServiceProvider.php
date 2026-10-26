@@ -2,7 +2,9 @@
 
 namespace Tusharkhan\BanglaFaker;
 
+use Faker\Generator;
 use Illuminate\Support\ServiceProvider;
+use Tusharkhan\BanglaFaker\Faker\BanglaFakerProvider;
 
 class BanglaFakerServiceProvider extends ServiceProvider
 {
@@ -55,6 +57,31 @@ class BanglaFakerServiceProvider extends ServiceProvider
         // Register the main class to use with the facade
         $this->app->singleton('BanglaFaker', function () {
             return new BanglaFaker;
+        });
+
+        $this->registerFakerProvider();
+    }
+
+    /**
+     * Add the bangla* formatters to every Faker generator Laravel resolves
+     * (fake(), factories). Faker is usually a dev dependency, so skip quietly
+     * when it isn't installed.
+     */
+    protected function registerFakerProvider()
+    {
+        if (! class_exists(Generator::class)) {
+            return;
+        }
+
+        $this->app->afterResolving(Generator::class, function (Generator $generator) {
+            // Laravel caches generators per locale across resolutions; add the provider once
+            foreach ($generator->getProviders() as $provider) {
+                if ($provider instanceof BanglaFakerProvider) {
+                    return;
+                }
+            }
+
+            $generator->addProvider(new BanglaFakerProvider());
         });
     }
 }
