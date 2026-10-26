@@ -12,6 +12,27 @@ All notable changes to `banglafaker` will be documented in this file
 - Added test cases
 
 
+## 1.2.1 - 2022-10-01
+
+- Added the `BanglaFaker` facade (`Tusharkhan\BanglaFaker\Facade\BanglaFaker`) and documented facade usage in the README.
+- Added facade and object-reference tests.
+
+
+## 1.3.1 - 2023-01-23
+
+- Laravel 9 support (`illuminate/support` ^9.48).
+- Fixed: arguments passed to generators through an instance or the facade were joined into a single comma-separated string.
+
+
+## 2.0.0 - 2024-12-03
+
+- Laravel 10 and 11 support.
+
+
+## 2.1.1 - 2025-06-01
+
+- Laravel 12 support.
+
 ## 2.2.0 - 2026-10-26
 
 ### Added
