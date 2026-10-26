@@ -9,7 +9,7 @@
 namespace Tusharkhan\BanglaFaker\Lib;
 
 
-use Tusharkhan\Banglafaker\BanglaFaker;
+use Tusharkhan\BanglaFaker\BanglaFaker;
 
 class Number extends BanglaFaker
 {
