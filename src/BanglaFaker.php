@@ -28,7 +28,7 @@ class BanglaFaker extends BaseFaker
     {
         foreach (static::getChildClasses() as $childClass){
             if( method_exists($childClass, $name) ){
-                return forward_static_call(array($childClass, $name), $arguments);
+                return forward_static_call(array($childClass, $name), ...$arguments);
             }
         }
 
